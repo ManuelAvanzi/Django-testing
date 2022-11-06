@@ -23,7 +23,7 @@ from news import urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',home,name="homepage"),
+    path('',include('news.urls')),
     path('libreria/',include('libreria.urls')),
     path('news/',include('news.urls'))
 ]
