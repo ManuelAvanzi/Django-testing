@@ -16,11 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include
 from .views import home
+from news.views import NewsHome
 
 # from libreria.views import LibreriaBlog,LibreriaContatti,LibreriaHome
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',home,name="homepage"),
-    path('libreria/',include('libreria.urls'))
+    path('libreria/',include('libreria.urls')),
+    path('news/',NewsHome,name="newshome")
 ]
