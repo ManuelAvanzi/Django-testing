@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News</title>
+</head>
+<body>
+    <h1>Questa è la homepage della applicazione News</h1>
+    {{ articoli }}
+    {{ giornalisti }}
+    <hr>
+
+    <h1><strong>Giornalisti</strong></h1>
+    {% for giornalista in giornalisti %}
+       <p>{{ giornalista.nome }} {{ giornalista.cognome }}</p> 
+    {% endfor %}
+    <hr>
+
+    <h1><strong>Articoli</strong></h1>
+    {% for articolo in articoli %}
+        <h3><a href="{{ articolo.get_absolute_url }}">{{ articolo.titolo}}</a></h3>
+        <p>{{ articolo.contenuto }}</p><span>{{ articolo.giornalista }}</span>
+    {% endfor %}
+    <hr>
+
+    <h1><strong>Giornalisti</strong></h1>
+    {% for giornalista in giornalisti %}
+       <p>{{ giornalista.nome }} {{ giornalista.cognome }}</p> 
+       <p>Articoli:</p>
+       {% for articolo in giornalista.articoli.all %}
+            <p>{{articolo.titolo}}</p>
+       {% endfor %}
+    {% endfor %}
+    <hr>
+    
+</body>
+</html>
